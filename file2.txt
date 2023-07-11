@@ -1,0 +1,40 @@
+*** Settings ***
+
+Library    SeleniumLibrary
+
+*** Variables ***
+${URL}    https://www.techlistic.com/p/selenium-practice-form.html
+
+*** Test Cases ***
+RadioButtons and Check Boxes
+  Open Browser    ${URL} 
+  Set Browser Implicit Wait    3
+      
+ #Radio Buttons
+  Select Radio Button    sex    Male
+  Select Radio Button    exp    2
+  Sleep    3    
+
+  # ...    Check Boxes
+   Select Checkbox    Automation Tester
+   Select Checkbox    Manual Tester
+   Sleep    3    
+   Unselect Checkbox    Manual Tester
+   Sleep    4    
+   Select Checkbox    Selenium Webdriver
+    Log    Completed    
+   Close Browser
+   
+ #list Selection
+    Open Browser  https://www.tutorialspoint.com/selenium/selenium_automation_practice.htm
+    Select From List By Label    continents    Antartica
+    Sleep    3        
+    Select From List By Index    continents    3
+    #list box
+    Select From List By Label    selenium_commands    Wait Commands
+    Sleep    5    
+    Select From List By Index    selenium_commands    1     
+       
+    Sleep    5    
+   Unselect From List By Index    Wait Commands
+     
