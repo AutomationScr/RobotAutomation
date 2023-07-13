@@ -1,0 +1,27 @@
+*** Settings ***
+
+library    SeleniumLibrary
+
+*** Test Cases ***
+Waits
+    
+    ${Speed}    Get Selenium Speed   #It will get the original speed fo the Selenium
+    log    ${Speed}
+    Open Browser    https://demowebshop.tricentis.com/register
+    Maximize Browser Window
+    
+    Set Selenium Speed   2seconds    #it will be applied for all steps of the code 
+    Select Radio Button    Gender    M
+    Input Text    id=FirstName    Manager
+    Input Text    id=LastName    HicapsTeam
+    Input Text    id=Email    Hicapsgirmiti20@gmail.com
+    
+    Input Password    id=Password    Hicaps
+    Input Password    id=ConfirmPassword    Hicaps  
+    
+    ${Speed}    Get Selenium Speed      #now here its changed to 0 to 2 seconds
+    log    ${Speed}
+    
+    Close Browser
+    
+                     
