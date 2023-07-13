@@ -1,0 +1,35 @@
+*** Settings ***
+
+library    SeleniumLibrary
+
+*** Test Cases ***
+Alerts
+    ${Get_speed}    Get Selenium Speed
+    log    ${Get_speed} 
+    Open Browser    https://testautomationpractice.blogspot.com/
+    ${Set_Speed}     Set Selenium Speed    3
+    log    ${Set_Speed}    
+    Click Element    xpath://*[@id="HTML9"]/div[1]/button    
+    Handle Alert    leave
+    ${Set2_Speed}    Set Selenium Speed    2
+    log    ${Set2_Speed}
+    Handle Alert    dismiss
+    Get Selenium Speed
+    Close All Browsers
+    
+frameTesting
+    Open Browser    https://www.selenium.dev/selenium/docs/api/java/index.html?overview-summary.html
+    Select Frame    packageListFrame
+    Unselect Frame
+    Sleep    2    
+    
+    Select Frame    packageFrame
+    Click Link      Bootstrap
+    Unselect Frame   
+    Sleep    2    
+     
+    Select Frame    classFrame
+    Click Link    Help    
+    Unselect Frame
+    
+    Close Browser
