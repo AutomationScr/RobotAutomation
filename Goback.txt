@@ -1,0 +1,22 @@
+*** Settings ***
+
+library    SeleniumLibrary
+
+
+*** Test Cases ***
+GoToGobackGetlocation
+    Open Browser    https://www.google.com/
+    ${Get_Location}    Get Location
+    log    ${Get_Location}    
+    Set Selenium Speed    2  
+   
+    Go To    https://www.testingtime.com/en/
+    ${Get_SecondLocation}    Get Location
+    log    ${Get_SecondLocation} 
+      
+    
+    Go Back  
+    ${Get_Location1(1)}    Get Location
+    log    ${Get_Location1(1)}   
+    Close All Browsers
+    
