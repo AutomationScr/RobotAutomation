@@ -1,0 +1,22 @@
+*** Settings ***
+
+library    SeleniumLibrary
+
+*** Test Cases ***
+CaptureScreenShot
+   ${Get Speed}    Get Selenium Speed
+   log    ${Get Speed}
+    Open Browser   http://orangehrm.qedgetech.com/symfony/web/index.php/auth/login
+    ${GetTitle}    Get Title
+    log   ${GetTitle} 
+    ${Set speed}    Set Selenium Speed    2
+    log    ${Set speed}
+    Input Text   id=txtUsername    Admin   
+    Input Password    id=txtPassword    admn123    
+    Sleep    3    
+    
+    Capture Element Screenshot    xpath://*[@id="divLogo"]/img
+    Capture Page Screenshot     
+    Close All Browsers
+    
+    
